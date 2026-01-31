@@ -1,6 +1,34 @@
 <!doctype html>
 <html lang="it">
 <head>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+  window.FAQ_BTICINO_CONFIG = {
+    brand_orange: "#ff6a00",
+
+    // EmailJS
+    emailjs_public_key: "vroneqwVOfxcazawc",
+    emailjs_service_id: "Sicuri_&_Connessi",
+    emailjs_template_id: "template_sjl0d24",
+    admin_to_email: "andrea.cattabiani@bticino.com",
+
+    // Auth (solo per invio domanda)
+    allowed_emails_url: "./allowed_emails.json",
+    allowed_domains: ["bticino.com","legrand.com","legrand-ext.com"],
+
+    // UI
+    open_button_selector: "#openAskBtn",
+    modal_title: "Invia una domanda al team",
+    faq_area: "FAQ – Estensione Garanzia QMC",
+
+    // Select options
+    roles: ["FTC R.E.","FTC Industry","Installatore","CAT","Altro"],
+    categories: [] // le settiamo dopo che carichi le FAQ (vedi sotto)
+  };
+    <script>
+  window.BTFAQ.boot();
+</script>
+  <script src="./vendor/faq-bticino.js"></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FAQ – Estensione Garanzia QMC</title>
@@ -502,6 +530,7 @@
 
         state.faqs = data;
         const categories = uniq(state.faqs.map(f => f.category).filter(Boolean));
+        BTFAQ.setCategories(categoriesWithoutTutte);
         renderCategories(categories);
 
         q.addEventListener("input", () => { state.query = q.value; render(); });
