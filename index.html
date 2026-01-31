@@ -345,6 +345,32 @@
     .okcard p{margin:8px 0 12px; color:rgba(15,15,16,.7); font-weight:600; font-size:13px; line-height:1.4}
     .okactions{display:flex; justify-content:flex-end}
     .btn-orange{ background:var(--bt-orange); color:#111; }
+    /* ===== Pulsante HOME (come Sicuri e Connessi) ===== */
+header.topbar{
+  position: relative; /* serve per posizionare il bottone */
+}
+
+.homeBtn{
+  position: absolute;
+  right: 24px;
+  top: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(15,15,16,.18);
+  background: #fff;
+  color: #111;
+  text-decoration: none;
+  font-weight: 800;
+  box-shadow: 0 10px 22px rgba(0,0,0,.06);
+}
+
+.homeBtn:hover{
+  border-color: rgba(255,106,0,.65);
+  box-shadow: 0 0 0 3px rgba(255,106,0,.12);
+}
   </style>
 </head>
 
@@ -459,7 +485,7 @@
     const EMAILJS_PUBLIC_KEY = "vroneqwVOfxcazawc";
     const EMAILJS_SERVICE_ID = "Sicuri_&_Connessi";
     const EMAILJS_TEMPLATE_ID = "template_sjl0d24";
-    const ADMIN_TO_EMAIL = "andrea.cattabiani@bticino.com"; // destinatario fisso
+    const ADMIN_TO_EMAIL = "filippo.juvarra@bticino.com"; // destinatario fisso
 
     emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
 
